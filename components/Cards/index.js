@@ -17,3 +17,56 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+
+axios 
+  .get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(res => {
+    console.log(res)
+    res.data.articles.javascript.forEach(i => {
+        cardsContainer.appendChild(CreateCard(i));
+    })
+    res.data.articles.bootstrap.forEach(i => {
+        cardsContainer.appendChild(CreateCard(i));
+    })
+    res.data.articles.technology.forEach(i => {
+        cardsContainer.appendChild(CreateCard(i));
+    })
+    res.data.articles.jquery.forEach(i => {
+        cardsContainer.appendChild(CreateCard(i));
+    })
+    res.data.articles.node.forEach(i => {
+        cardsContainer.appendChild(CreateCard(i));
+    })
+  })
+  .catch(error => {
+    console.log('error', error);
+  })
+
+  const cardsContainer = document.querySelector('.cards-container');
+
+  function CreateCard(data){
+    const lambdaCard = document.createElement('div');
+    const lambdaHeadline = document.createElement('div');
+    const lambdaAuthor = document.createElement('div');
+    const lambdaImgContainer = document.createElement('div');
+    const lambdaImg = document.createElement('img');
+    const lambdaAuthorName = document.createElement('span');
+
+    lambdaHeadline.textContent = `${data.headline}`;
+    lambdaImg.src = `${data.authorPhoto}`;
+    lambdaAuthorName.textContent = `${data.authorName}`;
+
+    lambdaCard.append(lambdaHeadline);
+    lambdaCard.append(lambdaAuthor);
+    lambdaCard.append(lambdaImgContainer);
+    lambdaCard.append(lambdaImg);
+    lambdaCard.append(lambdaAuthorName);
+
+    lambdaCard.classList.add('card');
+    lambdaHeadline.classList.add('headline');
+    lambdaAuthor.classList.add('author');
+    lambdaImgContainer.classList.add('img-container');
+
+    return lambdaCard
+  }
