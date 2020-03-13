@@ -30,13 +30,23 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+The DOM in my own words is what makes JS so awesome. Without the DOM JS would be nothing. The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content.
+
 2. What is an event?
+
+It's how HTML and JS interact with eachother. Like when the page loads that is an event and when something is clicked that is an event. 
 
 3. What is an event listener?
 
+An event listener is something you can set to listen for a specific event and do some action wehat that event is done.
+
 4. Why would we convert a NodeList into an Array?
 
+So we can itterate through the node as an array and pick out which items we want to display and where we want to display them.
+
 5. What is a component?
+
+A component is basically a re-usable set of logic that can have data passed to certain points.
 
 ### Git Set up
 
